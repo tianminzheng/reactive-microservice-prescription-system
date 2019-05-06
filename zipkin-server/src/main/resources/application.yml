@@ -1,0 +1,23 @@
+server:
+  port: 9411
+
+spring:
+  application:
+    name: zipkin
+
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
+        
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.tianyalan: INFO
+
+    
+    
+
+    

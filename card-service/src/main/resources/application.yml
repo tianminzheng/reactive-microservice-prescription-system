@@ -1,0 +1,49 @@
+server:
+  port: 8082
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        default:
+          content-type: application/json
+          binder: rabbitmq
+        output:
+          group: card-group
+          destination: card-destination
+      binders:
+        rabbitmq:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 127.0.0.1
+                port: 5672
+                username: guest
+                password: guest
+                virtual-host: /  
+  zipkin:
+    locator:
+      discovery:
+        enabled: true
+    baseUrl: http://localhost:9411
+  sleuth:
+    sampler:
+      percentage: 1.0
+        
+logging:
+    level:
+      com.netflix: WARN
+      org.springframework.web: WARN
+      com.tianyalan: INFO
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+        defaultZone: http://localhost:8761/eureka/
+
+        

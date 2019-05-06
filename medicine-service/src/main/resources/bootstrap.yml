@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: medicineservice
+  profiles:
+    active:
+      default
+  cloud:
+    config:
+      enabled: true
